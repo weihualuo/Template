@@ -1,0 +1,320 @@
+
+//@import '../../vendor/ionic-v0.9.26/css/ionic';
+
+@import  "../../vendor/ionic-0.9.17-alpha/dist/css/ionic";
+@import "../../vendor/ionic-0.9.17-alpha/dist/css/themes/ionic-ios7";
+//ionic used note:
+//bar bar-header bar-subheader icon button title list item
+//scroll-bar
+
+//@import "../../vendor/Gallery/css/blueimp-gallery";
+
+@import "variables";
+@import "mixinx";
+@import "utilities";
+@import "popup";
+@import "transition";
+@import "animation";
+
+// fix soft keyboard bug:
+body, html{
+  position: static;
+  overflow: auto;
+//  height: 100%;
+}
+
+.bar{
+  .box-align-center;
+  >a{
+    font-size: @icon-normal;
+    padding: 5px 5px;
+    margin: 0 5px;
+    border-radius: 10px;
+  }
+}
+
+.main-bar{
+  height: @mainHeaderHeight;
+  padding-top: @statusBarHeight;
+
+}
+
+.common-bar{
+  z-index: inherit;
+}
+
+.bar-subheader{
+  z-index: 9;
+  top: @mainHeaderHeight;
+}
+
+.content-view{
+  position: absolute;
+  top: @mainHeaderHeight+@headerHeight;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: #fff;
+
+  &.no-sub{
+    top: @mainHeaderHeight !important;
+  }
+  &.no-header{
+    top: 0 !important;
+  }
+  &.has-header{
+    top:@headerHeight;
+  }
+  &.no-side{
+    left: 0 !important;
+  }
+  &.no-background{
+    background: transparent;
+  }
+  &.popup-mode{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    z-index: @z-index-popup;
+  }
+}
+
+.has-form{
+  overflow: scroll;
+}
+
+.container{
+  position: absolute;
+  width: 100%;
+  padding: @thumb-padding;
+  background: @bodyBackground;
+}
+
+@pane-width-small: 200px;
+@pane-width-medium: 250px;
+@pane-width-large: 320px;
+
+.side-pane{
+  position: absolute;
+  overflow: hidden;
+//  box-shadow: -1px 5px 10px rgba(0,0,0,0.6);
+  .opacity(98);
+  right: 0;
+  top: @mainHeaderHeight;
+  bottom: 0;
+  width: @pane-filter-bar-width;
+  background: @bodyBackground;
+  width: @pane-width-large;
+
+  &.no-top{
+    top: 0;
+  }
+  &.has-bottom{
+    bottom: @side-pane-height;
+  }
+  &.small{
+    width: @pane-width-small;
+  }
+  &.medium{
+    width: @pane-width-medium;
+  }
+
+  &.pane-filter-bar{
+    .opacity(98);
+    right: 0;
+    top: @mainHeaderHeight;
+    bottom: 0;
+    width: @pane-filter-bar-width;
+    background: @bodyBackground;
+  }
+  &.pane-image-info{
+    .opacity(98);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: @pane-image-info-width;
+    background: @bodyBackground;
+  }
+  &.pane-my-menu{
+    .opacity(98);
+    right: 0;
+    top: @mainHeaderHeight;
+    bottom: @side-pane-height;
+    width: @pane-my-menu-width;
+    background: @bodyBackground;
+  }
+  &.pane-user-info{
+    right: 0;
+    top: @mainHeaderHeight;
+    bottom: 0;
+    width: @pane-user-info-width;
+    background: @bodyBackground;
+  }
+
+}
+
+.side-menu-item{
+  text-align: center;
+  color: white;
+  min-height: @side-menu-item-height;
+  &.active{
+    color: @color-active;
+  }
+  > span{
+    display: block;
+    > .icon{
+      font-size: @icon-large;
+    }
+  }
+}
+
+.filter-menu{
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 10px;
+}
+
+.refresher{
+  position: absolute;
+  left: 50%;
+  margin-left: -20px;
+  top: 0;
+  width: 40px;
+  height: 40px
+}
+
+button{
+  &.ng-click-active{
+    background: @bg-active-click;
+  }
+  &.active{
+    background: @bg-active-state;
+  }
+}
+
+a, .item{
+//  font-size: 18px;
+  &.ng-click-active{
+    background: @bg-active-click;
+  }
+  &.active{
+    color: @color-active;
+    background: @bg-active-state;
+  }
+
+}
+
+button[disabled], input[disabled]{
+  color: gray !important;
+}
+
+.icon-large{
+  font-size: @icon-large;
+}
+
+select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  color: #484848;
+  cursor: pointer;
+  text-align: left;
+}
+
+
+.select-wrapper{
+  position: relative;
+  >select{
+    width: 100%;
+  }
+  >i{
+    position: absolute;
+    right: 5px;
+    // (34 -14) /2
+    top: 10px;
+  }
+}
+
+.item-input{
+
+  >input, .select-wrapper, textarea{
+    .flex2;
+  }
+  >span{
+    .flex1;
+  }
+}
+
+ul:first-child{
+  border-top: 1px solid #dddddd;
+}
+//form.focused{
+//  .flex(99);
+//  .transition(all ease-in-out 300ms);
+//}
+
+.input-label.error{
+  color: red;
+}
+
+
+input[type=file]{
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.file-select{
+  position: relative;
+  .flex2;
+}
+.image-preview{
+  position: relative;
+  width: @thumb-width;
+  height: @thumb-height;
+  .box-center;
+
+  >.image-loading{
+    position: absolute;
+    font-size: @icon-large;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+  }
+  >img{
+    max-height: @thumb-height;
+    max-width: @thumb-width;
+  }
+}
+
+.right{
+  >i{
+    font-size: @icon-large;
+  }
+}
+
+.file-container{
+  width: @thumb-width+20;
+  height: @thumb-height+20;
+}
+
+@import "../app/home/home";
+@import "../app/photo/photo";
+@import "../app/product/product";
+@import "../app/ideabook/ideabook";
+@import "../app/my/my";
+@import "../app/pro/pro";
+@import "../app/advice/advice";
+@import "responsive";

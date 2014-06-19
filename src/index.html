@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+      <meta content=”yes” name=”apple-mobile-web-app-capable” />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+
+    <title>大美家居</title>
+
+    <% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>" />
+	<% }); %>
+
+    <% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script>
+	<% }); %>
+
+  </head>
+  <body ng-app="app" ng-controller="AppCtrl" include="app.tpl.html">
+
+    <div style="position: absolute;top: 48%; width: 100%; text-align: center;z-index: 2">
+        Loading...
+    </div>
+
+    <script>
+      console.log(new Date());
+    </script>
+
+  </body>
+</html>

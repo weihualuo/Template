@@ -1,0 +1,65 @@
+@import "variables";
+
+.res-side-pane{
+  z-index: @z-index-side-pane;
+  left: 0;
+  top: @mainHeaderHeight;
+  bottom: 0;
+  width: @side-pane-width;
+  background: #444;
+  .vbox-justify;
+}
+
+.res-hide-l{
+  display: none;
+}
+
+.res-has-side{
+  left: 0;
+  right: 0;
+  width: auto;
+}
+
+// >= 850
+@media (min-width: @res-has-side){
+
+  .res-has-side{
+    left: @side-pane-width;
+  }
+}
+
+//  < 850
+@media (max-width: @res-no-side){
+  .res-side-pane{
+    left: 0;
+    bottom: 0;
+    top:auto;
+    width: 100%;
+    height: @side-pane-height;
+    opacity: 0.7;
+    //background: rgba(0,0,0,0.7);
+    .hbox-justify;
+  }
+
+  .res-from-side{
+    opacity: 0;
+    .translate3d(0, 100%, 0);
+  }
+
+  .fade-to-side, .fade-to-side-add-active{
+    opacity: 0;
+    .translate3d(0, 100%, 0);
+  }
+
+}
+
+
+//   <=400
+@media (max-width: @res-small-screen){
+  .res-display-l{
+    display: none;
+  }
+  .res-hide-l{
+    display: inherit;
+  }
+}

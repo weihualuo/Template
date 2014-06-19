@@ -1,0 +1,27 @@
+
+
+
+@-webkit-keyframes loading {
+  from { -webkit-transform:rotate(0deg) translateZ(0); }
+  to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+
+@-webkit-keyframes shrinking {
+  from { -webkit-transform:scale3d(0.5, 0.5, 0); }
+  to { -webkit-transform:scale3d(1, 1, 0); }
+}
+
+
+@-webkit-keyframes shaking {
+//  from {-webkit-transform:rotateZ(0);}
+//  to {-webkit-transform:rotateZ(90deg);}
+  0% { -webkit-transform:rotateZ(45deg); }
+  25% { -webkit-transform:rotateZ(90deg); }
+  50% { -webkit-transform:rotateZ(45deg); }
+  75% { -webkit-transform:rotateZ(0deg); }
+  100% { -webkit-transform:rotateZ(45deg); }
+}
+
+.loading-rotate{
+  .animation(loading 2s linear 0 infinite);
+}

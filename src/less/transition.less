@@ -1,0 +1,167 @@
+
+.fade-out{
+  opacity: 1;
+  &.ng-leave{
+    .transition(all ease-in-out 300ms);
+  }
+
+  &.ng-leave-active{
+    // Start it at ...
+    .transform(scale3d(0.8,0.8,1));
+    // Start hidden
+    opacity: 0;
+  }
+}
+
+.fade-in-out{
+
+  opacity: 1;
+  &.ng-enter, &.ng-leave{
+    .transition(all ease-in-out 300ms);
+  }
+
+  &.ng-enter, &.ng-leave-active{
+    // Start it at ...
+    .transform(scale3d(0.5,0.5,0.5));
+    // Start hidden
+    opacity: 0;
+  }
+
+  &.ng-enter-active{
+    .transform(scale3d(1,1,1));
+    opacity: 1;
+  }
+
+  &.replaced{
+    &.ng-leave-active{
+      .transform(scale3d(0.5,0.5,0.5));
+      opacity: 0;
+    }
+  }
+
+  &.stacked-add, &.stacked-remove{
+    .transition(all ease-in-out 300ms);
+  }
+  &.stacked-add-active, &.stacked{
+    .transform(scale3d(0.5,0.5,0.5));
+    opacity: 0;
+  }
+}
+
+.popup-in-up {
+  opacity: 1;
+  &.ng-enter, &.ng-leave{
+    .transition(all ease-in-out 300ms)
+  }
+
+  &.ng-enter, &.ng-leave-active{
+    // Start it down low
+    .translate3d(0, 100%, 0);
+    // Start hidden
+    opacity: 0;
+  }
+
+  &.ng-enter-active{
+    .translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.popup-in-left {
+  opacity: 1;
+  &.ng-enter, &.ng-leave{
+    .transition(all ease-in-out 300ms)
+  }
+
+  &.ng-enter, &.ng-leave-active{
+    // Start it down low
+    .translate3d(-100%,0, 0);
+    // Start hidden
+    opacity: 0;
+  }
+
+  &.ng-enter-active{
+    .translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.popup-in-right {
+
+  &.ng-enter, &.ng-leave{
+    .transition(all ease-in-out 300ms);
+  }
+
+  &.ng-enter, &.ng-leave-active{
+    // Start it at right
+    .translate3d(100%, 0, 0);
+    // Start hidden
+    opacity: 0;
+  }
+
+  &.ng-enter-active, &.stacked-remove-active{
+    .translate3d(0, 0, 0);
+    opacity: 1;
+  }
+
+  &.replaced{
+    &.ng-leave-active{
+      .translate3d(-100%, 0, 0);
+    }
+  }
+
+  &.stacked-add, &.stacked-remove{
+    .transition(all ease-in-out 300ms);
+  }
+  &.stacked-add-active, &.stacked{
+    .translate3d(-100%, 0, 0);
+    //.transform(scale3d(0.8,0.8,1));
+    opacity: 0;
+  }
+}
+
+// responsive to width
+.fade-to-side, .fade-to-side-add-active{
+  opacity: 0;
+  .translate3d(-100%, 0, 0);
+}
+.fade-to-side-add, .fade-to-side-remove, .fade-to-hide-add, .fade-to-hide-remove{
+  .transition(all linear 250ms);
+}
+
+.fade-to-top, .fade-to-top-add-active{
+  opacity: 0;
+  .translate3d(0, -100%, 0);
+}
+.fade-to-top2, .fade-to-top2-add-active{
+  opacity: 0;
+  .translate3d(0, -200%, 0);
+}
+.fade-to-top-add, .fade-to-top-remove, .fade-to-top2-add, .fade-to-top2-remove,{
+  .transition(all linear 250ms);
+}
+
+.fade-to-hide, .fade-to-hide-add-active{
+  opacity: 0;
+}
+
+//Froms
+
+.from-right{
+  .translate3d(100%, 0, 0);
+  opacity: 0;
+}
+.from-top{
+  opacity: 0;
+  .translate3d(0, -100%, 0);
+}
+
+.res-from-side{
+  opacity: 0;
+  .translate3d(-100%, 0, 0);
+}
+
+.from-center{
+  .transform(scale3d(0.5,0.5,0.5));
+  opacity: 0;
+}
