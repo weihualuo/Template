@@ -34,36 +34,4 @@ angular.module('MESSAGE', [])
     TITLE_EXIST: '这个标题已经存在了，换一个吧'
     TIMEOUT: '网速不给力，上传或返回超时了'
   )
-  .constant('Config',
-    $meta:
-      imgbase: "http://houzz-imgs.stor.sinaapp.com/"
-      style: []
-      room: []
-      location: []
-    $filter:
-      room:
-        title: '空间'
-        any:
-          id: 0
-          en: 'All spaces'
-          cn: '所有空间'
-      style:
-        title: '风格'
-        any:
-          id: 0
-          en: 'Any Style'
-          cn: '所有风格'
-      location:
-        title: '地点'
-        any:
-          id: 0
-          en: 'Any Area'
-          cn: '全部地点'
-      topic:
-        title: '话题'
-        any:
-          id:0
-          en: 'Any topic'
-          cn: '全部话题'
-  )
 

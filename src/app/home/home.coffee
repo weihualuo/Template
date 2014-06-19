@@ -65,7 +65,9 @@ angular.module('app.home', ['restangular'])
 
     this
   )
+  .controller( 'HomeCtrl', ($scope) ->
 
+  )
 
 
 
