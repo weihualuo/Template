@@ -1,6 +1,20 @@
 
-//@import '../../vendor/ionic-v0.9.26/css/ionic';
+@import '../../vendor/bootstrap/less/variables.less';
+@import '../../vendor/bootstrap/less/mixins.less';
+@import '../../vendor/bootstrap/less/reset.less';
+@import '../../vendor/bootstrap/less/utilities.less';
+@import '../../vendor/bootstrap/less/scaffolding.less';
+@import '../../vendor/bootstrap/less/type.less';
+@import '../../vendor/bootstrap/less/grid.less';
+@import '../../vendor/bootstrap/less/layouts.less';
+@import '../../vendor/bootstrap/less/navs.less';
+@import '../../vendor/bootstrap/less/navbar.less';
+@import '../../vendor/bootstrap/less/buttons.less';
+@import '../../vendor/bootstrap/less/button-groups.less';
+@import '../../vendor/bootstrap/less/dropdowns.less';
+@import "../../vendor/bootstrap/less/forms";
 
+@import "../../vendor/font-awesome/less/font-awesome";
 @import  "../../vendor/ionic-0.9.17-alpha/dist/css/ionic";
 @import "../../vendor/ionic-0.9.17-alpha/dist/css/themes/ionic-ios7";
 //ionic used note:
@@ -15,168 +29,6 @@
 @import "popup";
 @import "transition";
 @import "animation";
-
-// fix soft keyboard bug:
-body, html{
-  position: static;
-  overflow: auto;
-//  height: 100%;
-}
-
-.bar{
-  .box-align-center;
-  >a{
-    font-size: @icon-normal;
-    padding: 5px 5px;
-    margin: 0 5px;
-    border-radius: 10px;
-  }
-}
-
-.main-bar{
-  height: @mainHeaderHeight;
-  padding-top: @statusBarHeight;
-
-}
-
-.common-bar{
-  z-index: inherit;
-}
-
-.bar-subheader{
-  z-index: 9;
-  top: @mainHeaderHeight;
-}
-
-.content-view{
-  position: absolute;
-  top: @mainHeaderHeight+@headerHeight;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  background: #fff;
-
-  &.no-sub{
-    top: @mainHeaderHeight !important;
-  }
-  &.no-header{
-    top: 0 !important;
-  }
-  &.has-header{
-    top:@headerHeight;
-  }
-  &.no-side{
-    left: 0 !important;
-  }
-  &.no-background{
-    background: transparent;
-  }
-  &.popup-mode{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.2);
-    z-index: @z-index-popup;
-  }
-}
-
-.has-form{
-  overflow: scroll;
-}
-
-.container{
-  position: absolute;
-  width: 100%;
-  padding: @thumb-padding;
-  background: @bodyBackground;
-}
-
-@pane-width-small: 200px;
-@pane-width-medium: 250px;
-@pane-width-large: 320px;
-
-.side-pane{
-  position: absolute;
-  overflow: hidden;
-//  box-shadow: -1px 5px 10px rgba(0,0,0,0.6);
-  .opacity(98);
-  right: 0;
-  top: @mainHeaderHeight;
-  bottom: 0;
-  width: @pane-filter-bar-width;
-  background: @bodyBackground;
-  width: @pane-width-large;
-
-  &.no-top{
-    top: 0;
-  }
-  &.has-bottom{
-    bottom: @side-pane-height;
-  }
-  &.small{
-    width: @pane-width-small;
-  }
-  &.medium{
-    width: @pane-width-medium;
-  }
-
-  &.pane-filter-bar{
-    .opacity(98);
-    right: 0;
-    top: @mainHeaderHeight;
-    bottom: 0;
-    width: @pane-filter-bar-width;
-    background: @bodyBackground;
-  }
-  &.pane-image-info{
-    .opacity(98);
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: @pane-image-info-width;
-    background: @bodyBackground;
-  }
-  &.pane-my-menu{
-    .opacity(98);
-    right: 0;
-    top: @mainHeaderHeight;
-    bottom: @side-pane-height;
-    width: @pane-my-menu-width;
-    background: @bodyBackground;
-  }
-  &.pane-user-info{
-    right: 0;
-    top: @mainHeaderHeight;
-    bottom: 0;
-    width: @pane-user-info-width;
-    background: @bodyBackground;
-  }
-
-}
-
-.side-menu-item{
-  text-align: center;
-  color: white;
-  min-height: @side-menu-item-height;
-  &.active{
-    color: @color-active;
-  }
-  > span{
-    display: block;
-    > .icon{
-      font-size: @icon-large;
-    }
-  }
-}
-
-.filter-menu{
-  padding: 5px 10px;
-  margin: 0 5px;
-  border-radius: 10px;
-}
 
 .refresher{
   position: absolute;
@@ -299,11 +151,6 @@ input[type=file]{
   }
 }
 
-.right{
-  >i{
-    font-size: @icon-large;
-  }
-}
 
 .file-container{
   width: @thumb-width+20;
@@ -311,10 +158,4 @@ input[type=file]{
 }
 
 @import "../app/home/home";
-@import "../app/photo/photo";
-@import "../app/product/product";
-@import "../app/ideabook/ideabook";
-@import "../app/my/my";
-@import "../app/pro/pro";
-@import "../app/advice/advice";
 @import "responsive";

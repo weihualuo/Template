@@ -11,7 +11,6 @@ angular.module('app.home', ['restangular'])
 
     ctrl = this
     ctrl.auto = on
-    #uri = path.match(/\/(\w+)/)[1]
     collection = objects = null
 
     @reload = (search=$location.search(), sub=$routeParams)->
