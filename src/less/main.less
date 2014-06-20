@@ -13,30 +13,36 @@
 @import '../../vendor/bootstrap/less/button-groups.less';
 @import '../../vendor/bootstrap/less/dropdowns.less';
 @import "../../vendor/bootstrap/less/forms";
+@import "../../vendor/bootstrap/less/modals";
+@import "../../vendor/bootstrap/less/tables";
+@import "../../vendor/bootstrap/less/wells";
 
-@import "../../vendor/font-awesome/less/font-awesome";
-@import  "../../vendor/ionic-0.9.17-alpha/dist/css/ionic";
-@import "../../vendor/ionic-0.9.17-alpha/dist/css/themes/ionic-ios7";
-//ionic used note:
-//bar bar-header bar-subheader icon button title list item
-//scroll-bar
+//@import "../../vendor/font-awesome/less/font-awesome";
+//@import  "../../vendor/ionic-0.9.17-alpha/dist/css/ionic";
+//@import "../../vendor/ionic-0.9.17-alpha/dist/css/themes/ionic-ios7";
 
-//@import "../../vendor/Gallery/css/blueimp-gallery";
 
 @import "variables";
 @import "mixinx";
 @import "utilities";
-@import "popup";
-@import "transition";
-@import "animation";
+//@import "popup";
+//@import "transition";
+//@import "animation";
 
-.refresher{
-  position: absolute;
-  left: 50%;
-  margin-left: -20px;
+#content {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+#header{
+  position: fixed;
+  right: 0;
+  left: 0;
   top: 0;
-  width: 40px;
-  height: 40px
+  z-index: 1030;
+}
+.left-sidebar{
+  position: absolute;
+  padding-right: 2px;
 }
 
 button{
@@ -64,37 +70,32 @@ button[disabled], input[disabled]{
   color: gray !important;
 }
 
-.icon-large{
-  font-size: @icon-large;
-}
-
-select{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  color: #484848;
-  cursor: pointer;
-  text-align: left;
-}
-
-
-.select-wrapper{
-  position: relative;
-  >select{
-    width: 100%;
-  }
-  >i{
-    position: absolute;
-    right: 5px;
-    // (34 -14) /2
-    top: 10px;
-  }
-}
+//select{
+//  -webkit-appearance: none;
+//  -moz-appearance: none;
+//  appearance: none;
+//  background-color: #fff;
+//  border: 1px solid #ccc;
+//  -webkit-border-radius: 3px;
+//  -moz-border-radius: 3px;
+//  border-radius: 3px;
+//  color: #484848;
+//  cursor: pointer;
+//  text-align: left;
+//}
+//
+//.select-wrapper{
+//  position: relative;
+//  >select{
+//    width: 100%;
+//  }
+//  >i{
+//    position: absolute;
+//    right: 5px;
+//    // (34 -14) /2
+//    top: 10px;
+//  }
+//}
 
 .item-input{
 
@@ -104,57 +105,6 @@ select{
   >span{
     .flex1;
   }
-}
-
-ul:first-child{
-  border-top: 1px solid #dddddd;
-}
-//form.focused{
-//  .flex(99);
-//  .transition(all ease-in-out 300ms);
-//}
-
-.input-label.error{
-  color: red;
-}
-
-
-input[type=file]{
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.file-select{
-  position: relative;
-  .flex2;
-}
-.image-preview{
-  position: relative;
-  width: @thumb-width;
-  height: @thumb-height;
-  .box-center;
-
-  >.image-loading{
-    position: absolute;
-    font-size: @icon-large;
-    z-index: 2;
-    left: 50%;
-    top: 50%;
-    margin-left: -15px;
-    margin-top: -15px;
-  }
-  >img{
-    max-height: @thumb-height;
-    max-width: @thumb-width;
-  }
-}
-
-
-.file-container{
-  width: @thumb-width+20;
-  height: @thumb-height+20;
 }
 
 @import "../app/home/home";

@@ -1,2 +1,45 @@
 
-home page
+<div class="container">
+    <div class="row">
+        <div class="span3">
+            <form class="affix">
+                <fieldset>
+                    <legend>Customer</legend>
+                    <label>Select Product</label>
+                    <select name="product" ng-model="product" ng-options="p.title for p in products" required>
+                    </select>
+                    <label>Select start date</label>
+                    <input type="text" datepicker-popup ng-model="birthdate" is-open="opened" />
+                </fieldset>
+            </form>
+        </div>
+        <div class="span9">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th trans>Product</th>
+                        <th trans>Date</th>
+                        <th trans>new users</th>
+                        <th trans>total users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>product name</td>
+                        <td>Date</td>
+                        <td>new num</td>
+                        <td>totle num</td>
+                    </tr>
+                    <tr>
+                        <td>product name</td>
+                        <td>Date</td>
+                        <td>new num</td>
+                        <td>totle num</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br class="clear" />

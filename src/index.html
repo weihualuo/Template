@@ -1,30 +1,40 @@
-<!DOCTYPE html>
-<html>
-  <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta content=”yes” name=”apple-mobile-web-app-capable” />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
 
-    <title>Stats system</title>
+<!DOCTYPE html>
+<html lang="zh-cn" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>统计数据</title>
+    <link rel="stylesheet" type="text/css" href="/m/admin/css/base.css" />
+    <!--<link href="/m/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--<link href="/m/libs/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">-->
 
     <% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" />
-	<% }); %>
+    <% }); %>
+
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="/m/admin/css/ie.css" /><![endif]-->
+    <script type="text/javascript">window.__admin_media_prefix__ = "/m/admin/";</script>
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <% scripts.forEach( function ( file ) { %>
     <script type="text/javascript" src="<%= file %>"></script>
-	<% }); %>
+    <% }); %>
+    <script src="/m/locale/zh-cn.js"></script>
 
-  </head>
-  <body ng-app="app" ng-controller="AppCtrl" include="app.tpl.html">
+    <meta name="robots" content="NONE,NOARCHIVE" />
+</head>
 
-    <div style="position: absolute;top: 48%; width: 100%; text-align: center;z-index: 2">
-        Loading...
+
+<body class="">
+
+    <div id="container" ng-app="app" ng-controller="AppCtrl" include="app.tpl.html">
+        <script>
+           window.lang = 'zh-cn'
+        </script>
     </div>
 
-    <script>
-      console.log(new Date());
-    </script>
-
-  </body>
+</body>
 </html>
+

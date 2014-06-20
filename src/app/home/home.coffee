@@ -64,7 +64,10 @@ angular.module('app.home', ['restangular'])
 
     this
   )
-  .controller( 'HomeCtrl', ($scope) ->
+  .controller( 'HomeCtrl', ($scope, $timeout) ->
+
+    $scope.onDateOpen = ->
+      $timeout -> $scope.dateOpened = true
 
   )
 
