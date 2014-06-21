@@ -56,15 +56,12 @@ module.exports = {
 
     js: [
 
-        'vendor2/ionicCustom/ionic.js',
-        'vendor2/ionicCustom/scrollView.js',
-
         'vendor/angular-1.2.14/angular.js',
         'vendor/angular-1.2.14/angular-animate.js',
         'vendor/angular-1.2.14/angular-touch.js',
         'vendor/angular-1.2.14/angular-sanitize.js',
         'vendor/angular-1.2.14/angular-route.js',
-        'vendor/angular-bootstrap/ui-bootstrap-custom-tpls-0.10.0.js',
+        'vendor/angular-bootstrap/ui-bootstrap-tpls-0.11.0.min.js',
         'vendor/lodash/lodash.js',
         'vendor/restangular1.2.2/restangular.js'
     ],

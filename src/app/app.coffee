@@ -1,5 +1,6 @@
 angular.module( 'app', [ 'ngRoute', 'ngTouch', 'ngAnimate', 'ngSanitize',
-                         'templates-app', 'templates-common', 'Model', 'MESSAGE', 'i18n'
+                         'ui.bootstrap',
+                         'templates-app', 'templates-common', 'Model', 'i18n'
                          'app.utils', 'app.home',
                          'CacheView', 'Service', 'Popup', 'Scroll', 'Widget'
 ])
