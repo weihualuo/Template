@@ -55,11 +55,7 @@ module.exports = {
        */
 
     js: [
-
         'vendor/angular-1.2.14/angular.js',
-        'vendor/angular-1.2.14/angular-animate.js',
-        'vendor/angular-1.2.14/angular-touch.js',
-        'vendor/angular-1.2.14/angular-sanitize.js',
         'vendor/angular-1.2.14/angular-route.js',
         'vendor/angular-bootstrap/ui-bootstrap-tpls-0.11.0.min.js',
         'vendor/lodash/lodash.js',

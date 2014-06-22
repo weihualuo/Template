@@ -144,5 +144,12 @@ angular.module( 'Model', ['restangular', 'app.utils'])
     (name, init)-> _objects[name] ?=  new Factory name, init
 
   )
+  .factory('When', ()->
+    (obj)->
+      if obj.$resolved
+        then:(callback)-> callback(obj)
+      else
+        obj.$promise
+  )
 
 

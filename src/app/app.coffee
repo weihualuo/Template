@@ -29,13 +29,9 @@ angular.module( 'app', [ 'ngRoute', 'ngTouch', 'ngAnimate', 'ngSanitize',
     # simulate html5Mode
     if !location.hash
       $location.path(location.pathname)
-
-    #prevent webkit drag
-    $document.on 'touchmove', (e)->e.preventDefault()
-    window.addEventListener 'resize', -> $timeout ->
-      $rootScope.$broadcast('resize')
   )
-  .controller('AppCtrl', ($scope) ->
+  .controller('AppCtrl', ($scope, Single) ->
+    $scope.meta = Single('meta').get()
   )
 
 

@@ -1,13 +1,6 @@
 angular.module('app.home', ['restangular'])
 
-  .factory('When', ()->
-    (obj)->
-      if obj.$resolved
-        then:(callback)-> callback(obj)
-      else
-        obj.$promise
-  )
-  .controller( 'ListCtrl', ($scope, name, $timeout, $q, $routeParams, $location, Restangular, Many, Popup, Env, MESSAGE) ->
+  .controller( 'ListCtrl', ($scope, name, $timeout, $q, $routeParams, $location, Restangular, Many) ->
 
     ctrl = this
     ctrl.auto = on
@@ -31,10 +24,8 @@ angular.module('app.home', ['restangular'])
           $scope.objects = objects
           $scope.haveMore = objects.meta.more
           $scope.totalCount = objects.length + $scope.haveMore
-          Env[name]?.count = $scope.totalCount
           $scope.$broadcast('scroll.reload')
 
-      Popup.loading($scope.promise, failMsg:MESSAGE.LOAD_FAILED)
       $scope.promise
 
 
@@ -64,10 +55,49 @@ angular.module('app.home', ['restangular'])
 
     this
   )
-  .controller( 'HomeCtrl', ($scope, $timeout) ->
+  .controller( 'HomeCtrl', ($scope, $controller, $timeout, When, Nav) ->
 
-    $scope.onDateOpen = ->
+    $scope.listCtrl =  $controller('ListCtrl', {$scope:$scope, name: 'data'})
+
+    $scope.date = $scope.maxDate = new Date()
+    $scope.onDateOpen = ($event)->
+      $event.preventDefault()
+      $event.stopPropagation()
       $timeout -> $scope.dateOpened = true
+
+    updateDataSet = ->
+      if $scope.objects.$resolved
+        if $scope.product?.id
+          $scope.dataset = _.filter($scope.objects, product:$scope.product.id)
+        else
+          $scope.dataset = $scope.objects
+      else
+        # in case get a empty list
+        $scope.dataset = []
+
+    allProduct = id:0, title: _U('All')
+    When($scope.meta).then (meta)->
+      $scope.user = meta.user
+      $scope.customer = meta.user.company?[0]
+      $scope.products = meta.products
+      $scope.products.unshift allProduct
+      $scope.product = $scope.products[0]
+      $scope.$watch 'product', updateDataSet
+
+    $scope.$watchCollection 'objects', updateDataSet
+
+    $scope.$watch 'date', (date, old)->
+      console.log date
+      if date isnt old
+        param =
+          date: [date.getFullYear(), date.getMonth()+1, date.getDate()].join('-')
+        console.log param
+        Nav.go({name:'home', search:param})
+
+    $scope.productName = (id)->
+      p = _.find($scope.products, id:id)
+      p?.title
+
 
   )
 
