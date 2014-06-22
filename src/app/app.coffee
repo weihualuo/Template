@@ -1,4 +1,4 @@
-angular.module( 'app', [ 'ngRoute', 'ngTouch', 'ngAnimate', 'ngSanitize',
+angular.module( 'app', [ 'ngRoute',
                          'ui.bootstrap',
                          'templates-app', 'templates-common', 'Model', 'i18n'
                          'app.utils', 'app.home',
