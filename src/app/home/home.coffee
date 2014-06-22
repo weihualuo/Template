@@ -59,6 +59,13 @@ angular.module('app.home', ['restangular'])
 
     $scope.listCtrl =  $controller('ListCtrl', {$scope:$scope, name: 'data'})
 
+    $scope.onMore = ->
+      $scope.listCtrl.more() if not $scope.loadingMore
+
+    $scope.moreText =
+      false: _U('More')
+      true: _U('Loading')
+
     $scope.date = $scope.maxDate = new Date()
     $scope.onDateOpen = ($event)->
       $event.preventDefault()
