@@ -94,10 +94,8 @@ angular.module('app.home', ['restangular'])
     $scope.$watchCollection 'objects', updateDataSet
 
     $scope.$watch 'date', (date, old)->
-      console.log date
       if date isnt old
-        param =
-          date: [date.getFullYear(), date.getMonth()+1, date.getDate()].join('-')
+        param = date and date: [date.getFullYear(), date.getMonth()+1, date.getDate()].join('-')
         console.log param
         Nav.go({name:'home', search:param})
 
